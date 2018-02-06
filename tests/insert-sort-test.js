@@ -21,43 +21,36 @@ describe('insertSort', function() {
     assert.deepEqual(insertSort(numbers),[-5, -3, 1, 2, 4])
     })
   it('should sort an array of random numbers', function(){
-    let sortedArray = insertSort(randomNumberGen);
+    let sortedArray = insertSort(generateRandomNumbers(33, 200));
 
-    function randomNumberGen () {
-      function randomNumberBetween0and19 () {
-        var dynRando = Math.floor(Math.random() * 20);
-        return dynRando;
-      }
-      const numArray = [];
+    function generateRandomNumbers( count, maxVal ) {
+      const array = [];
 
-    for(var i= 0; i < 5; i++) {
-    numArray.push(randomNumberBetween0and19());
+      for (let i = 0; i < count; i++) {
+        array.push(parseInt(Math.random() * maxVal));
       }
-      return numArray;
+
+      return array;
+    }
+    for(let i = 0; i < sortedArray.length - 1; i++) {
+    assert.equal(sortedArray[i] <= sortedArray[i + 1], true)
+    }
+    })
+  it('should sort an array of large numbers', function(){
+    let sortedArray = insertSort(generateRandomNumbers(300, 250000));
+
+    function generateRandomNumbers( count, maxVal ) {
+      const array = [];
+
+      for (let i = 0; i < count; i++) {
+        array.push(parseInt(Math.random() * maxVal));
+      }
+
+      return array;
     }
     // assert.deepEqual(bubbleSort(numbers),randomNumberGen())
     for(let i = 0; i < sortedArray.length - 1; i++) {
-    assert.equal(sortedArray[i] <= sortedArray[i + 1])
+    assert.equal(sortedArray[i] <= sortedArray[i + 1], true)
     }
     })
-    it('should sort an array of large numbers', function(){
-      let sortedArray = insertSort(randomNumberGen);
-
-      function randomNumberGen () {
-        function randomNumberBetween0and19 () {
-          var dynRando = Math.floor(Math.random() * 20000000);
-          return dynRando;
-        }
-        const numArray = [];
-
-      for(var i= 0; i < 5; i++) {
-      numArray.push(randomNumberBetween0and19());
-        }
-        return numArray;
-      }
-      // assert.deepEqual(bubbleSort(numbers),randomNumberGen())
-      for(let i = 0; i < sortedArray.length - 1; i++) {
-      assert.equal(sortedArray[i] <= sortedArray[i + 1])
-      }
-      })
   })

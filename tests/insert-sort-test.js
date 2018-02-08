@@ -37,7 +37,7 @@ describe('insertSort', function() {
     }
     })
   it('should sort an array of large numbers', function(){
-    let sortedArray = insertSort(generateRandomNumbers(300, 250000));
+    let sortedArray = insertSort(generateRandomNumbers(20000, 2500000000));
 
     function generateRandomNumbers( count, maxVal ) {
       const array = [];

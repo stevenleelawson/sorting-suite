@@ -38,7 +38,7 @@ describe('mergeSort', function() {
     }
     })
     it('should sort an array of large numbers', function(){
-      let sortedArray = mergeSort(generateRandomNumbers(200, 9000));
+      let sortedArray = mergeSort(generateRandomNumbers(3000, 250000000000));
 
       function generateRandomNumbers( count, maxVal ) {
         const array = [];

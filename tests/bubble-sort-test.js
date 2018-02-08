@@ -37,7 +37,7 @@ describe('bubbleSort', function() {
     }
     })
   it('should sort an array of large numbers', function(){
-    let sortedArray = bubbleSort(generateRandomNumbers(300, 250000));
+    let sortedArray = bubbleSort(generateRandomNumbers(3000, 250000000000));
 
     function generateRandomNumbers( count, maxVal ) {
       const array = [];
